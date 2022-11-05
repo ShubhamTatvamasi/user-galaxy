@@ -1,0 +1,6 @@
+---
+- name: Update {{ ansible_user }} user password
+  become: true
+  user:
+    name: "{{ ansible_user }}"
+    password: "{{ user_password | password_hash('sha512') }}"
